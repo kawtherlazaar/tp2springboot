@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Résultat</title>
+</head>
+<body>
+<h2>Etudiant enregistré :</h2>
+<p>Nom: <span th:text="${etudiant.nom}"></span></p>
+<p>Prenom: <span th:text="${etudiant.prenom}"></span></p>
+<p>Groupe: <span th:text="${etudiant.groupe}"></span></p>
+<p>Moyenne: <span th:text="${etudiant.moyenne}"></span></p>
+
+<a th:href="@{/web/form}">Retour</a>
+</body>
+</html>
