@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+
+<h1 th:text="'Bonjour ' + ${nom} + ', bienvenue dans Thymeleaf !'"></h1>
+
+<h2>Liste des étudiants</h2>
+
+<ul>
+    <li th:each="student : ${students}">
+        <span th:text="${student.nom}"></span>
+        <span th:text="${student.prenom}"></span>
+        (
+        Classe: <span th:text="${student.groupe}"></span>
+        - Moyenne: <span th:text="${student.moyenne}"></span>
+        )
+    </li>
+</ul>
+
+<p th:if="${#lists.isEmpty(students)}">
+    Aucun étudiant
+</p>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Liste des étudiants</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1a73e8;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    li {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    .details {
+      color: #555;
+      margin-left: 5px;
+    }
+
+    p {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Liste des étudiants</h2>
+
+<ul>
+  <li th:each="student : ${students}">
+    <span th:text="${student.nom}"></span>
+    <span th:text="${student.prenom}"></span>
+    <span class="details">
+      (Classe: <span th:text="${student.groupe}"></span> - Moyenne: <span th:text="${student.moyenne}"></span>)
+    </span>
+  </li>
+</ul>
+
+<p th:if="${#lists.isEmpty(students)}">
+  Aucun étudiant
+</p>
+
+</body>
+</html>
